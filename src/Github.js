@@ -2,6 +2,14 @@ import React from 'react'
 import './Github.css'
 
 class Github extends React.Component {
+    state = {
+        username: '',
+    }
+
+    handleChange = (ev) => {
+        this.setState({username: ev.target.value})
+    }
+    
     render() {
         return (
             <div className="Github">
@@ -12,7 +20,11 @@ class Github extends React.Component {
                 />
                 <form>
                     <div>
-                        <input type="text"/>
+                        <input 
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                        />
                     </div>
                     <div>
                         <button type="submit"> Look up user</button>
